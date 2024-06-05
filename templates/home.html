@@ -1,45 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Jovian Careers</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-		<style>
-			#banner {
-				width: 100%;
-				height: 360px;
-				object-fit: cover;
-			}
-		</style>
-
+    <title>Jovian Careers</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light grey background */
+        }
+        #banner {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            margin-bottom: 16px;
+        }
+    </style>
 </head>
-<body class='' >
-	<div class='container text-secondary' >
-		<h1 class='text-center mt-2 mb-4' > {{company_name}} Careers</h1>
+<body>
+    <!-- Navigation and Banner -->
+    <div class='mb-20'>
+        {% include 'nav.html' %}
+        <img class='img-fluid shadow p-3 mb-5 bg-body-tertiary rounded' id='banner' src="static/banner.jpg" height='320'>
+    </div> <!-- End of Navigation and Banner -->
 
-		<img class='img-fluid' id='banner' src="static/banner.jpg" height='320' >
+    <!-- Main container for the page content -->
+    <div class='container text-secondary mb-5'>
+        <!-- Page title -->
+        <h1 class='text-center mt-2 mb-5'>{{ company_name }} Careers</h1>
 
-			<h2  class='text-center' >About Jovian</h2>
-				<p class='lead p-2'' >
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
+        <!-- About section -->
+        <div class='row d-flex align-items-stretch'>
+            <!-- About text -->
+            <div class='col-md-6'>
+                <p class='lead p-4 shadow bg-body-tertiary rounded'>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus nisl tincidunt eget nullam non nisi est sit amet. Risus in hendrerit gravida rutrum. In vitae turpis massa sed elementum tempus egestas sed sed. Ipsum a arcu cursus vitae congue mauris rhoncus aenean. Pellentesque habitant morbi tristique senectus. Convallis posuere morbi leo urna molestie at. Condimentum mattis pellentesque id nibh. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue. Ultrices vitae auctor eu augue ut lectus arcu. Est ante in nibh mauris cursus mattis molestie a iaculis. Pulvinar elementum integer enim neque.
+                </p>
+            </div> <!-- End of About text -->
 
-				<h2  class='text-center mt-2 mb-4' >Job Openings</h2>
-					<p class='mt-2 mb-4' > 
-						<div >
-							{% for job in jobs %}
-								{% include 'jobitem.html' %}
-							{% endfor %}
-						</div>
-							 
+            <!-- About image -->
+            <div class='d-none d-md-block col-md-6'>
+                <img class="img-fluid align-self-center shadow p-4 mb-3 bg-body-tertiary rounded" id='team' src="static/team.jpg" height='340' width='540'>
+            </div> <!-- End of About image -->
+        </div> <!-- End of About section -->
+    </div> <!-- End of Main container -->
 
-				</p>
+    <!-- Job openings section -->
+    <div class="container text-secondary bottom-space">
+        <h2 class='text-center mt-2 mb-5'>Job Openings</h2>
+        <div>
+            <!-- Loop through jobs and display each one -->
+            {% for job in jobs %}
+                {% include 'jobitem.html' %}
+            {% endfor %}
+        </div> <!-- End of Job listings -->
+    </div> <!-- End of Job openings section -->
 
-				<div class="d-grid gap-2 col-2 text-center mx-auto"  >
-					<button class='btn btn-info btn-med text-light fw-semibold' >Contact Us</button>
-						<p class='mt-4  ' >Copyright 2023, Jovian</p>
-				</div>
-		</div>
+    <!-- Contact section -->
+    <div class="d-grid gap-2 col-md-2 text-center mx-auto">
+        <a href='mailto:hello@jovian.ai?subject=Questions about Job Openings&body=Dear%20Hiring%20Manager%2C%0D%0A%0D%0AMy%20name%20is%20%5BYour%20Name%5D%20and%20I%20have%20a%20question%20about%20the%20job%20openings.%0D%0A%0D%0A%5BYour%20Question%5D%0D%0A%0D%0AThank%20you%2C%0D%0A%5BYour%20Name%5D' type="button" class="btn btn-info btn-med text-light fw-bold shadow" style="margin-top: 40px;">Contact Us</a>
+    </div> <!-- End of Contact section -->
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
 </body>
 </html>
