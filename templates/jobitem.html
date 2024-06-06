@@ -1,15 +1,18 @@
 <div class='mb-3 pb-3 shadow bg-body-tertiary rounded' style='padding-left:50px'>
-		<div class='row'>
-				<div class='col-10'>
-						<h4 class='mt-3 mb-3'>{{ job.title }}</h4>
-						<div><b>Location:</b> {{ job.location }}</div>
-						<!-- Check if salary is provided and display it -->
-						{% if job.salary %}
-								<div><b>Salary:</b> {{ job.salary }}</div>
-						{% endif %}
-				</div>
-				<div class='col-2 mt-4 pt-4'>
-						<a href='mailto:hello@jovian.ai?subject=Application for {{ job.title }}&body=Dear%20Hiring%20Manager%2C%0D%0A%0D%0AMy%20email%20address%20is%3A%20%5BYour%20Email%5D%0D%0A%0D%0A%5BYour%20Name%5D%0D%0A%5BLink%20to%20Resume%5D%0D%0A%5BLink%20to%20Website%5D%0D%0A%5BContact%20Info%5D%0D%0A%0D%0AThank%20you%2C%0D%0A%5BYour%20Name%5D' type="button" class="btn btn-outline-info float-right align-middle">Apply</a>
-				</div>
-		</div>
+    <div class='row'>
+        <div class='col-10'>
+            <h4 class='mt-3 mb-3'>{{ job.title }}</h4>
+            <div><b>Location:</b> {{ job.location }}</div>
+            <!-- Check if salary is provided and display it -->
+            {% if job.salary %}
+                <div><b>Salary:</b> {{ job.salary }}</div>
+            {% endif %}
+            <div class="d-block d-md-none job-button-container mt-3">
+                <a href='mailto:hello@jovian.ai?subject=Application for {{ job.title }}&body=Dear%20Hiring%20Manager%2C%0D%0A%0D%0AMy%20email%20address%20is%3A%20%5BYour%20Email%5D%0D%0A%0D%0A%5BYour%20Name%5D%0D%0A%5BLink%20to%20Resume%5D%0D%0A%5BLink%20to%20Website%5D%0D%0A%5BContact%20Info%5D%0D%0A%0D%0AThank%20you%2C%0D%0A%5BYour%20Name%5D' type="button" class="btn btn-outline-info btn-custom">Apply</a>
+            </div>
+        </div>
+        <div class='col-2 mt-4 pt-4 d-none d-md-block'>
+            <a href='mailto:hello@jovian.ai?subject=Application for {{ job.title }}&body=Dear%20Hiring%20Manager%2C%0D%0A%0D%0AMy%20email%20address%20is%3A%20%5BYour%20Email%5D%0D%0A%0D%0A%5BYour%20Name%5D%0D%0A%5BLink%20to%20Resume%5D%0D%0A%5BLink%20to%20Website%5D%0D%0A%5BContact%20Info%5D%0D%0A%0D%0AThank%20you%2C%0D%0A%5BYour%20Name%5D' type="button" class="btn btn-outline-info btn-custom float-right align-middle">Apply</a>
+        </div>
+    </div>
 </div>
